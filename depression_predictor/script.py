@@ -9,7 +9,7 @@ from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.models import load_model
-from  flask import Flask,render_template
+from  flask import Flask,render_template, send_from_directory
 from flask import request
 import numpy as np
 import tensorflow as tf
@@ -18,31 +18,39 @@ from keras.models import load_model
 
 app = Flask(__name__)
 
+path = 'dep_model_trained.h5'
+
 @app.route('/', methods=["GET", "POST"])
 def landing_page():
-return render_template('index.html')
+    return render_template('index.html')
 
 # prediction function 
-def ValuePredictor(to_predict_list): 
-to_predict = np.array(to_predict_list).shape(1, 31)
-file_name = 'dep_model_trained.h5'
-loaded_model = load_model(file_name)
-result = loaded_model.predict(to_predict) 
-return result[0] 
+def ValuePredictor(to_predict_list):
+    print(np.array(to_predict_list)) 
+    to_predict = np.array(to_predict_list).shape
+    file_name = 'dep_model_trained.h5'
+    loaded_model = load_model(file_name)
+    # result = loaded_model.predict(to_predict) 
+    # return result[0] 
+    return 1
+
+@app.route('/Project-3/<path:path>')
+def send_js(path):
+    return send_from_directory('..', path)
 
 @app.route('/result', methods = ['POST']) 
 def result(): 
-if request.method == 'POST': 
-    to_predict_list = request.form.to_dict() 
-    to_predict_list = list(to_predict_list.values()) 
-    to_predict_list = list(map(int, to_predict_list)) 
-    result = ValuePredictor(to_predict_list)		 
-    if int(result)== 1: 
-        prediction ='You maybe diagnosed with depression'
-    else: 
-        prediction ='No sign of Depression'			
-    return render_template("result.html", prediction = prediction) 
+    if request.method == 'POST': 
+        to_predict_list = request.form.to_dict() 
+        to_predict_list = list(to_predict_list.values()) 
+        to_predict_list = list(map(int, to_predict_list)) 
+        result = ValuePredictor(to_predict_list)		 
+        if int(result)== 1: 
+            prediction ='You may be diagnosed with depression'
+        else: 
+            prediction ='No sign of Depression'			
+        return render_template("result.html", prediction = prediction) 
 
 if __name__ == "__main__":
-app.run(debug=True)
+    app.run(debug=True)
 
