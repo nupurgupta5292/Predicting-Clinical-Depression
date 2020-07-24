@@ -15,10 +15,12 @@ import numpy as np
 import tensorflow as tf
 import keras
 from keras.models import load_model
-
+import os
+print(os.path.abspath('.'))
 app = Flask(__name__)
 
-path = 'dep_model_trained.h5'
+file_name = 'dep_model_trained.h5'
+loaded_model = load_model(file_name)
 
 @app.route('/', methods=["GET", "POST"])
 def landing_page():
@@ -27,12 +29,9 @@ def landing_page():
 # prediction function 
 def ValuePredictor(to_predict_list):
     print(np.array(to_predict_list)) 
-    to_predict = np.array(to_predict_list).shape
-    file_name = 'dep_model_trained.h5'
-    loaded_model = load_model(file_name)
-    # result = loaded_model.predict(to_predict) 
-    # return result[0] 
-    return 1
+    # to_predict = np.array(to_predict_list).shape
+    result = loaded_model.predict_classes([to_predict_list]) 
+    return result[0]
 
 @app.route('/Project-3/<path:path>')
 def send_js(path):
