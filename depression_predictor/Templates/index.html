@@ -1,125 +1,357 @@
-<html> 
-<body> 
-    <h3>Depression Prediction Form</h3> 
+<!DOCTYPE html>
+<html lang="en">
 
-<div> 
-<form action="/result" method="POST"> 
-    <label for="sex">Sex</label> 
-    <select id="sex" name="sex">
-    <option value="0">Male</option>
-    <option value="1" selected>Female</option>
-    </select>   
-    <br> 
-    <label for="age">Age</label>
-    <input type="text" id="age" name="age" value="43">
-    <br>
-    <label for="marital_staus">Marital Status</label>
-    <select id="marital_staus" name="marital_status">
-    <option value="0">Single</option>
-    <option value="1" selected>Married</option>
-    </select>  
-    <br>
-    <label for="age">Number of Children</label>
-    <input type="text" id="children" name="children" value="3">
-    <br>
-    <label for="household_size">Size of household</label>
-    <input type="text" id="household_size" name="household_size" value="5">
-    <br>
-    <label for="years_of_edu">Years of education</label>
-    <input type="text" id="years_of_edu" name="years_of_edu" value="10">
-    <br>
-    <label for="age">Number of Children under 18</label>
-    <input type="text" id="hh_children" name="hh_children" value="3">
-    <br>
-    <label for="cons_nondurable">Non-durable expenditure (USD)</label>
-    <input type="text" id="cons_nondurable" name="cons_nondurable" value="99">
-    <br>
-    <label for="asset_durable">Value of durable goods (USD)</label>
-    <input type="text" id="asset_durable" name="asset_durable" value="193">
-    <br>
-    <label for="asset_phone">Value of cell phone (USD)</label>
-    <input type="text" id="asset_phone" name="asset_phone" value="0">
-    <br>
-    <label for="asset_savings">Value of savings (USD)</label>
-    <input type="text" id="asset_savings" name="asset_savings" value="0">
-    <br>
-    <label for="asset_land_owned_total">Land owned (acres)</label>
-    <input type="text" id="asset_land_owned_total" name="asset_land_owned_total" value="4">
-    <br>
-    <label for="cons_allfood">Expenditure: Food total (USD)</label>
-    <input type="text" id="cons_allfood" name="cons_allfood" value="84">
-    <br>
-    <label for="cons_alcohol">Expenditure: Alcohol (USD)</label>
-    <input type="text" id="cons_alcohol" name="cons_alcohol" value="0">
-    <br>
-    <label for="cons_tobacco">Expenditure: Tobacco (USD)</label>
-    <input type="text" id="cons_tobacco" name="cons_tobacco" value="0">
-    <br>
-    <label for="cons_med_total">Medical expenditure past month (USD)</label>
-    <input type="text" id="cons_med_total" name="cons_med_total" value="0">
-    <br>
-    <label for="cons_med_children">Medical expenditure, children (USD)</label>
-    <input type="text" id="cons_med_children" name="cons_med_children" value="0">
-    <br>
-    <label for="cons_ed">Education expenditure (USD)</label>
-    <input type="text" id="cons_ed" name="cons_ed" value="2">
-    <br>
-    <label for="cons_social">Social expenditure (USD)</label>
-    <input type="text" id="cons_social" name="cons_social" value="6">
-    <br>
-    <label for="cons_other">Other expenditure (USD)</label>
-    <input type="text" id="cons_other" name="cons_other" value="7">
-    <br>
-    <label for="ent_nonag_revenue">Business revenue, monthly (USD)</label>
-    <input type="text" id="ent_nonag_revenue" name="ent_nonag_revenue" value="0">
-    <br>
-    <label for="ent_nonag_flowcost">Business flow expenses, monthly (USD)</label>
-    <input type="text" id="ent_nonag_flowcost" name="ent_nonag_flowcost" value="0">
-    <br>
-    <label for="ent_total_cost">Total expenses, monthly (USD)</label>
-    <input type="text" id="ent_total_cost" name="ent_total_cost" value="0">
-    <br>
-    <label for="fs_adwholed_often">Whole days without food (adults, \# last month)</label>
-    <input type="text" id="fs_adwholed_often" name="fs_adwholed_often" value="20">
-    <br>
-    <label for="fs_chwholed_often">Whole days without food (children, \# last month)</label>
-    <input type="text" id="fs_chwholed_often" name="fs_chwholed_often" value="0">
-    <br>
-    <label for="fs_meat">Number of times ate meat or fish (last week)</label>
-    <input type="text" id="fs_meat" name="fs_meat" value="4">
-    <br>
-    <label for="fs_enoughtom">Enough food in the house for tomorrow?</label>
-    <select type="text" id="fs_enoughtom" name="fs_enoughtom" value="0">
-    <option value="0" selected>No</option>
-    <option value="1">Yes</option>
-    </select>  
-    <br>
-    <label for="fs_sleephun">Respondent slept hungry (last week)</label>
-    <select id="fs_sleephun" name="fs_sleephun">
-    <option value="0">No</option>
-    <option value="1" selected>Yes</option>
-    </select>  
-    <br>
-    <label for="med_sickdays_hhave">Average number of sick days per House Hold member</label>
-    <input type="text" id="med_sickdays_hhave" name="med_sickdays_hhave" value="1">
-    <br>
-    <label for="med_u5_deaths">Proportion of children under 5 who died (1 year)</label>
-    <input type="text" id="med_u5_deaths" name="med_u5_deaths" value="0">
-    <br>
-    <label for="ed_expenses">Education expenditure past month (USD)</label>
-    <input type="text" id="ed_expenses" name="ed_expenses" value="25">
-    <br>
-    <label for="ed_schoolattend">Proportion of school-aged children in school</label>
-    <input type="text" id="ed_schoolattend" name="ed_schoolattend" value="1">
-    <br>
-    <label for="durable_investment">Durable Investments</label>
-    <input type="text" id="durable_investment" name="durable_investment" value="290">
-    <br>
-    <label for="nondurable_investment">Non-Durable Investments</label>
-    <input type="text" id="nondurable_investment" name="nondurable_investment" value="3">
-    <br> 
-    <input type="submit" value="Submit"> 
-</form> 
-</div> 
-</body> 
-</html> 
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Au Register Forms by Colorlib</title>
+
+    <!-- Icons font CSS-->
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/main.css" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Depression predictor</h2>
+                    <h6 class="title2"><span>&#9888;</span>Not for clinical use<span>&#9888;</span></h6>
+                </div>
+                <div class="card-body">
+                    <form action="/result" method="POST"> 
+                        <div class="form-row">
+                            <div class="name">Sex</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select id="sex" name="subject">
+                                            <option disabled="disabled" selected="selected">Choose option</option>
+                                            <option value="0">Male</option>
+                                            <option value="1" selected>Female</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Age</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="age" name="age" value="67">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Marital Status</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select id="marital_staus" name="marital_status">
+                                            <option disabled="disabled" selected="selected">Choose option</option>
+                                            <option value="0" selected>Single</option>
+                                            <option value="1">Married</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Number of Children</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="children" name="children" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Size of household</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="household_size" name="household_size" value="1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Years of education</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="years_of_edu" name="years_of_edu" value="1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Number of Children under 18</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="hh_children" name="hh_children" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Non-durable expenditure (USD)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="cons_nondurable" name="cons_nondurable" value="37">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Value of durable goods (USD)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="asset_durable" name="asset_durable" value="33">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Value of cell phone (USD)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="asset_phone" name="asset_phone" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Value of savings (USD)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="asset_savings" name="asset_savings" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Land owned (acres)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="asset_land_owned_total" name="asset_land_owned_total" value="2">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Expenditure: Food total (USD)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="cons_allfood" name="cons_allfood" value="26">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Expenditure: Alcohol (USD)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="cons_alcohol" name="cons_alcohol" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Expenditure: Tobacco (USD)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="cons_tobacco" name="cons_tobacco" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Medical expenditure past month (USD)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="cons_med_total" name="cons_med_total" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Medical expenditure, children (USD)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="cons_med_children" name="cons_med_children" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Education expenditure (USD)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="cons_ed" name="cons_ed" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Social expenditure (USD)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="cons_social" name="cons_social" value="3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Other expenditure (USD)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="cons_other" name="cons_other" value="9">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Business revenue, monthly (USD)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="ent_nonag_revenue" name="ent_nonag_revenue" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Business flow expenses, monthly (USD)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="ent_nonag_flowcost" name="ent_nonag_flowcost" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Total expenses, monthly (USD)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="ent_total_cost" name="ent_total_cost" value="5">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Whole days without food (adults, \# last month)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="fs_adwholed_often" name="fs_adwholed_often" value="3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Whole days without food (children, \# last month)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="fs_chwholed_often" name="fs_chwholed_often" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Number of times ate meat or fish (last week)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="fs_meat" name="fs_meat" value="1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row p-t-20">
+                            <label class="label label--block">Enough food in the house for tomorrow?</label>
+                            <div class="p-t-15">
+                                <label class="radio-container m-r-55">Yes
+                                    <input value="1" id="fs_enoughtom" type="radio" name="fs_enoughtom">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container">No
+                                    <input value="0" id="fs_enoughtom" type="radio" checked="checked" name="fs_enoughtom">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row p-t-20">
+                            <label class="label label--block">Respondent slept hungry (last week)</label>
+                            <div class="p-t-15">
+                                <label class="radio-container m-r-55">Yes
+                                    <input value="1" id="fs_sleephun" type="radio" checked="checked" name="fs_sleephun">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container">No
+                                    <input value="0" id="fs_sleephun" type="radio" name="fs_sleephun">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Average number of sick days per House Hold member</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="med_sickdays_hhave" name="med_sickdays_hhave" value="3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Proportion of children under 5 who died (1 year)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="med_u5_deaths" name="med_u5_deaths" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Education expenditure past month (USD)</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="ed_expenses" name="ed_expenses" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Proportion of school-aged children in school</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="ed_schoolattend" name="ed_schoolattend" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Durable Investments</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="durable_investment" name="durable_investment" value="58">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Non-Durable Investments</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" id="nondurable_investment" name="nondurable_investment" value="5">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn--radius-2 btn--red" type="submit" value="Submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->
