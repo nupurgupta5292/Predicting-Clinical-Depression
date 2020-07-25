@@ -19,7 +19,7 @@ import os
 print(os.path.abspath('.'))
 app = Flask(__name__)
 
-file_name = 'dep_model_trained.h5'
+file_name = 'C:/Users/nites/Desktop/DA Bootcamp Homeworks/Project-3/depression_predictor/dep_model_trained.h5'
 loaded_model = load_model(file_name)
 
 @app.route('/', methods=["GET", "POST"])
@@ -28,14 +28,14 @@ def landing_page():
 
 # prediction function 
 def ValuePredictor(to_predict_list):
-    print(np.array(to_predict_list)) 
-    # to_predict = np.array(to_predict_list).shape
-    result = loaded_model.predict_classes([to_predict_list]) 
+    print(to_predict_list)
+    to_predict_list = np.array(to_predict_list).reshape(1,34)
+    X_scaler = MinMaxScaler().fit(to_predict_list)
+    to_predict_list_scaled = X_scaler.transform(to_predict_list)
+    print(to_predict_list_scaled)
+    result = loaded_model.predict_classes([to_predict_list_scaled])
+    print(result) 
     return result[0]
-
-@app.route('/Project-3/<path:path>')
-def send_js(path):
-    return send_from_directory('..', path)
 
 @app.route('/result', methods = ['POST']) 
 def result(): 
