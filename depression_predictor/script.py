@@ -18,6 +18,7 @@ from keras.models import load_model
 import os
 print(os.path.abspath('.'))
 app = Flask(__name__)
+app.static_folder = 'static'
 
 file_name = 'C:/Users/nites/Desktop/DA Bootcamp Homeworks/Project-3/depression_predictor/dep_model_trained.h5'
 loaded_model = load_model(file_name)
