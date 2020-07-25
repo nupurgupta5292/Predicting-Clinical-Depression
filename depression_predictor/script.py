@@ -29,11 +29,14 @@ def landing_page():
 # prediction function 
 def ValuePredictor(to_predict_list):
     print(to_predict_list)
-    to_predict_list = np.array(to_predict_list).reshape(1,34)
-    X_scaler = MinMaxScaler().fit(to_predict_list)
-    to_predict_list_scaled = X_scaler.transform(to_predict_list)
+    to_predict_list = np.array(to_predict_list, dtype=np.float32)
+    X_scaler = MinMaxScaler().fit(to_predict_list.reshape(34,1))
+    to_predict_list_scaled = X_scaler.transform(to_predict_list.reshape(34,1))
     print(to_predict_list_scaled)
-    result = loaded_model.predict_classes([to_predict_list_scaled])
+    #result = loaded_model.predict_classes([to_predict_list])
+    to_predict_list_scaled_reshaped = to_predict_list_scaled.reshape(1,34)
+    print(to_predict_list_scaled_reshaped)
+    result = loaded_model.predict_classes([to_predict_list_scaled_reshaped])
     print(result) 
     return result[0]
 
