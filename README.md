@@ -1,6 +1,6 @@
 # Prediciting Clinical Depression
 
-Utilized Quality of Living data collected for a rural population in Kenya to develop and test several machine learning models including Linear Regression, Support Vector Machine (SVM), Decision Trees, Random Forest and Deep Neural Networks. Also developed UI for the user to determine their possibility of being depressed and visualized the existing data trends using Tableau
+Utilized Quality of Living data collected for a rural population in Kenya to develop and test several supervised machine learning models including Linear Regression, Support Vector Machine (SVM), Decision Trees, Random Forest and Deep Neural Networks. Also developed UI for the user to determine their possibility of being depressed and visualized the existing data trends using Tableau
 
 ## Getting Started
 
